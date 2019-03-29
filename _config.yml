@@ -2,8 +2,8 @@
 title: Fujishiro Otone
 SEOTitle: Otoneの世界
 header-img: img/index.jpg
-email: kurumi.zsy@gmail.com
-description: "青春如遊戲，只是不能再讀檔"
+email: lurizhongtian@163.com
+description: ""
 keyword: "Otone, Otone Blog, 前端, 动漫, 游戏"
 url: "https://rasertingl.github.io/"          # your host, for absolute URL
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
@@ -12,8 +12,8 @@ home_repo: "http://fujishiro.cn"
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "大切な人といつかまた巡り会えますように"
-sidebar-avatar: /img/about-Otone.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-about-description: ""
+sidebar-avatar: /img/timg.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
@@ -21,7 +21,7 @@ sidebar-avatar: /img/about-Otone.jpg      # use absolute URL, seeing it's used i
 RSS: false
 weibo_username:     _Otone
 #zhihu_username:     
-github_username:    FujishiroOtone
+github_username:    Raserting_L
 #facebook_username: 
 jianshu_username:  3bf62aac1afc
 twitter_username:   osuHatsuneMiku
@@ -78,8 +78,8 @@ gitalk:
 # ba_track_id: b50bf2b12b5338a1845e33832976fd68
 
 # Google Analytics
-ga_track_id: 'UA-124497414-1'            # Format: UA-xxxxxx-xx
-ga_domain: blog.fujishiro.cn               # 默认的是 auto, 这里我是自定义了的域名，你如果没有自己的域名，需要改成auto
+ga_track_id: ''            # Format: UA-xxxxxx-xx
+ga_domain: auto           # 默认的是 auto, 这里我是自定义了的域名，你如果没有自己的域名，需要改成auto
 
 
 
