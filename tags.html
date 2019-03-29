@@ -1,7 +1,8 @@
 ---
-title: 标签
+title: Tags
 layout: default
-header-img: "img/bg/bg_tag.jpg"
+description: 大切な人といつかまた巡り会えますように
+header-img: "img/tag.jpg"
 ---
 
 <!-- Page Header -->
@@ -29,6 +30,12 @@ header-img: "img/bg/bg_tag.jpg"
 				{% endfor %}
 			</div>
 
+            <!--<blockquote class="tag-comments">
+                标签命名规范：
+                    <li>行业观察、职位、公司优先使用中文</li>
+                    <li>外国产品、术语优先使用英文</li>
+            </blockquote>-->
+
             <!-- 标签列表 -->
 			{% for tag in site.tags %}
 			<div class="one-tag-list">
@@ -36,7 +43,11 @@ header-img: "img/bg/bg_tag.jpg"
                     <span class="tag-text">{{ tag[0] }}</span>
                 </span>
 				{% for post in tag[1] %}
-				<div class="post-preview">
+				  <!-- <li class="listing-item">
+				  <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+				  <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+				  </li> -->
+				 <div class="post-preview">
 				    <a href="{{ post.url | prepend: site.baseurl }}">
 				        <h2 class="post-title">
                             {{ post.title }}
@@ -47,6 +58,7 @@ header-img: "img/bg/bg_tag.jpg"
 				        </h3>
 				        {% endif %}
 				    </a>
+				    <!-- <p class="post-meta">{{ post.date | date:"%Y-%m-%d" }}</p> -->
 				</div>
 				<hr>
 				{% endfor %}

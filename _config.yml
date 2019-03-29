@@ -1,66 +1,121 @@
 # Site settings
-title: Xs-Huxblog
-SEOTitle: Xs-HuxBlog
-header-img: img/bg/bg_index.jpg
-email: jsksxs360@163.com
-description: ""
-keyword: ""
-url: "https://rasertingl.github.io/"              # your host, for absolute URL
-baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
+title: Fujishiro Otone
+SEOTitle: Otoneの世界
+header-img: img/index.jpg
+email: kurumi.zsy@gmail.com
+description: "青春如遊戲，只是不能再讀檔"
+keyword: "Otone, Otone Blog, 前端, 动漫, 游戏"
+url: "https://rasertingl.github.io/"          # your host, for absolute URL
+baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
+github_repo: "https://github.com/FujishiroOtone/FujishiroOtone.github.io" # you code repository
+home_repo: "http://fujishiro.cn"
+
+# Sidebar settings
+sidebar: true                           # whether or not using Sidebar.
+sidebar-about-description: "大切な人といつかまた巡り会えますように"
+sidebar-avatar: /img/about-Otone.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+
+
 
 # SNS settings
-douban_username: 138483825
-weibo_username: jsksxs360
-zhihu_username: jsksxs360
-github_username: jsksxs360
+RSS: false
+weibo_username:     _Otone
+#zhihu_username:     
+github_username:    FujishiroOtone
+#facebook_username: 
+jianshu_username:  3bf62aac1afc
+twitter_username:   osuHatsuneMiku
+
+
+
 
 # Build settings
 # from 2016, 'pygments' is unsupported on GitHub Pages. Use 'rouge' for highlighting instead.
-highlighter: rouge
 permalink: pretty
 paginate: 10
-exclude: ["less","node_modules","Gruntfile.js","package.json","README.md","README.zh.md"]
+exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
 anchorjs: true                          # if you want to customize anchor. check out line:181 of `post.html`
 
-# Plugins
-plugins: [jekyll-paginate]
+
+
+# Gems
+# from PR#40, to support local preview for Jekyll 3.0
+gems: [jekyll-paginate]
+
+
+
 
 # Markdown settings
 # replace redcarpet to kramdown,
 # although redcarpet can auto highlight code, the lack of header-id make the catalog impossible, so I switch to kramdown
 # document: http://jekyllrb.com/docs/configuration/#kramdown
 markdown: kramdown
+highlighter: rouge
 kramdown:
   input: GFM                            # use Github Flavored Markdown !important
 
-# Baidu Share
-bd_share: true                          # whether or not using baidu share
 
-# Livere
-labili: false                           # whether or not using Livere
-labili_uid: MTAyMC80MjI1Ny8xODgwNA==    # data uid
+
+# 评论系统
+# Disqus（https://disqus.com/）
+# disqus_username: otone
+
+# Gitalk
+gitalk:
+  enable: true    #是否开启Gitalk评论
+  clientID: 1628acd4584b56ed9b40                            #生成的clientID
+  clientSecret: 16b70af1ac573e1609bb84a604b4504a18cf7bcd    #生成的clientSecret
+  repo: FujishiroOtone.github.io    #仓库名称
+  owner: FujishiroOtone    #github用户名
+  admin: FujishiroOtone
+  distractionFreeMode: true #是否启用类似FB的阴影遮罩
+
+
+# 统计
 
 # Analytics settings
 # Baidu Analytics
-ba_track_id: 07529a93af5fa9f808261a1318c3aba4
+# ba_track_id: b50bf2b12b5338a1845e33832976fd68
 
-# Sidebar settings
-sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "专注IT，乐于分享。"
-sidebar-avatar: /xs-huxblog/img/avatar-xs.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+# Google Analytics
+ga_track_id: 'UA-124497414-1'            # Format: UA-xxxxxx-xx
+ga_domain: blog.fujishiro.cn               # 默认的是 auto, 这里我是自定义了的域名，你如果没有自己的域名，需要改成auto
+
+
+
+
 
 # Featured Tags
-featured-tags: true                     # whether or not using Feature-Tags
-featured-condition-size: 1              # A tag will be featured if the size of it is more than this condition value
+featured-tags: true                     # 是否使用首页标签
+featured-condition-size: 0             # 相同标签数量大于这个数，才会出现在首页
 
-# Friends
-friends: [
+
+
+# Progressive Web Apps
+chrome-tab-theme-color: "#000000"
+service-worker: true
+
+
+
+# links
+links: [
     {
-        title: "Hux Blog",
-        href: "http://huangxuan.me"
-    },
-    {
-        title: "Xs blog",
-        href: "http://xiaosheng.me"
+        title: "个人のGitHub",
+        href: "https://github.com/FujishiroOtone	"
+    },{
+        title: "简书·Otone",
+        href: "https://www.jianshu.com/u/3bf62aac1afc"
+    },{
+        title: "Twitter",
+        href: "https://twitter.com/osuHatsuneMiku"
+    },{
+        title: "个人のbilibili",
+        href: "https://space.bilibili.com/1880573/#/"
+    },{
+        title: "asdfv1929",
+        href: "https://asdfv1929.github.io/"
+    },{
+        title: "月小水长",
+        href: "https://inspurer.github.io/"
     }
 ]
