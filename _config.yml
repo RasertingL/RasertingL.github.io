@@ -12,7 +12,7 @@ baseurl: ""                             # for example, '/blog' if your blog host
 douban_username: 
 weibo_username: 
 zhihu_username:
-github_username:
+github_username: Raserting_L
 
 # Build settings
 # from 2016, 'pygments' is unsupported on GitHub Pages. Use 'rouge' for highlighting instead.
@@ -42,7 +42,7 @@ labili_uid: MTAyMC80MjI1Ny8xODgwNA==    # data uid
 
 # Analytics settings
 # Baidu Analytics
-ba_track_id: 07529a93af5fa9f808261a1318c3aba4
+ba_track_id: 
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
