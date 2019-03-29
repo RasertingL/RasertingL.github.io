@@ -3,7 +3,7 @@ title: Raserting_L
 SEOTitle: Raserting_L|天
 header-img: img/index.jpg
 email: lurizhongtian@163.com
-description: ""
+description: "ML	DL	CV	SLAM"
 keyword: "ML	DL	CV	SLAM"
 url: "https://rasertingl.github.io/"          # your host, for absolute URL
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
@@ -12,7 +12,7 @@ home_repo: ""
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: ""
+sidebar-about-description: "ML	DL	CV	SLAM"
 sidebar-avatar: /img/timg.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
@@ -23,8 +23,8 @@ RSS: false
 #zhihu_username:     
 github_username:    RasertingL
 #facebook_username: 
-jianshu_username:  3bf62aac1afc
-twitter_username:   osuHatsuneMiku
+jianshu_username:  d9ba8e414ca8
+#twitter_username:   
 
 
 
@@ -100,22 +100,14 @@ service-worker: true
 # links
 links: [
     {
-        title: "个人のGitHub",
-        href: "https://github.com/FujishiroOtone	"
+        title: "GitHub",
+        href: "https://github.com/RasertingL"
     },{
-        title: "简书·Otone",
-        href: "https://www.jianshu.com/u/3bf62aac1afc"
+        title: "简书",
+        href: "https://www.jianshu.com/u/d9ba8e414ca8"
     },{
-        title: "Twitter",
-        href: "https://twitter.com/osuHatsuneMiku"
-    },{
-        title: "个人のbilibili",
-        href: "https://space.bilibili.com/1880573/#/"
-    },{
-        title: "asdfv1929",
-        href: "https://asdfv1929.github.io/"
-    },{
-        title: "月小水长",
-        href: "https://inspurer.github.io/"
+        title: "作业部落",
+        href: "https://www.zybuluo.com/Perfect-Demo/note/1143857"
     }
+
 ]
