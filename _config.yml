@@ -3,8 +3,9 @@ title: Raserting_L
 SEOTitle: Raserting_L|天
 header-img: img/index.jpg
 email: lurizhongtian@163.com
-description: "ML	DL	CV	SLAM"
-keyword: "ML	DL	CV	SLAM"
+description: "ML    DL    CV    SLAM"
+keyword: "ML    DL    CV    SLAM"
+
 url: "https://rasertingl.github.io/"          # your host, for absolute URL
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
 github_repo: "https://github.com/RasertingL/RasertingL.github.io" # you code repository
