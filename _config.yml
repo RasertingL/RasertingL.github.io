@@ -10,7 +10,7 @@ url: "https://rasertingl.github.io/Raserting.io/" # the base hostname & protocol
 
 # User setting
 owner:
-email:lurizhongtian@163.com
+email:“lurizhongtian@163.com”
 facebook_username:
 twitter_username:
 github_username:RasertingL
