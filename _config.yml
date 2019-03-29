@@ -1,22 +1,18 @@
 # Site settings
-title: Raserting_L
-SEOTitle: Raserting_L
+title: Xs-Huxblog
+SEOTitle: Xs-HuxBlog
 header-img: img/bg/bg_index.jpg
-email: lurizhongtian@163.com
+email: jsksxs360@163.com
 description: ""
 keyword: ""
 url: "https://rasertingl.github.io/"              # your host, for absolute URL
-baseurl: ""                             # for example, '/blog' if your blog hosted on 'host/blog'
+baseurl: "/xs-huxblog"                             # for example, '/blog' if your blog hosted on 'host/blog'
 
 # SNS settings
 douban_username: 138483825
 weibo_username: jsksxs360
-
 zhihu_username: jsksxs360
-
 github_username: jsksxs360
-
-
 
 # Build settings
 # from 2016, 'pygments' is unsupported on GitHub Pages. Use 'rouge' for highlighting instead.
@@ -46,12 +42,12 @@ labili_uid: MTAyMC80MjI1Ny8xODgwNA==    # data uid
 
 # Analytics settings
 # Baidu Analytics
-ba_track_id: 
+ba_track_id: 07529a93af5fa9f808261a1318c3aba4
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
 sidebar-about-description: "专注IT，乐于分享。"
-sidebar-avatar: /img/timg.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-avatar: /xs-huxblog/img/avatar-xs.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 # Featured Tags
 featured-tags: true                     # whether or not using Feature-Tags
@@ -60,11 +56,11 @@ featured-condition-size: 1              # A tag will be featured if the size of 
 # Friends
 friends: [
     {
-        title: "作业部落",
-        href: "https://www.zybuluo.com/Perfect-Demo/note/1143857"
+        title: "Hux Blog",
+        href: "http://huangxuan.me"
     },
     {
-        title: "Raserting_L",
-        href: "https://rasertingl.github.io/"
+        title: "Xs blog",
+        href: "http://xiaosheng.me"
     }
 ]
