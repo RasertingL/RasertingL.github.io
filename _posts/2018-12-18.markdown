@@ -1,0 +1,305 @@
+---
+layout:     post
+title:      "搜狗实验室新闻数据分析"
+subtitle:   "欢迎使用"
+date:       2018-12-18 14:36
+author:     "Raserting_L"
+header-img: "img/bg/hello_world.jpg"
+catalog: true
+tags:
+    - 机器学习深度学习
+---
+
+# 搜狗实验室新闻数据分析
+
+---
+
+[TOC]
+
+**包括下面几项内容:**
+
+ - 从原始语料中提取出新闻内容并保存
+ - 对中文进行分词并且保存
+ - 使用停词表(为之后的TF-IDF提取关键词铺路)
+ - 统计新闻中的词出现频率并进行排序制作词云
+ - 用TF-IDF提取关键词
+ - 进行word2vec词嵌入
+ - 用PCA在二维空间显示各个词的聚集情况
+
+## 1. 原始语料库提取内容
+由于从搜狗实验室下载的语料,属于原始数据,还包含各种HTML标签,所以需要进行处理,用下面的shell语句就可以解决:
+(另外文件名字是news_tensite_xml.dat)
+
+```shell
+cat news_tensite_xml.dat | iconv -f gbk -t utf-8 -c | grep "<content>"  > corpus.txt
+```
+保存为corpus.txt
+(但是这里面内容仍然包含了一个<content>标签,之后可以通过re库来去除)
+
+## 2. 中文分词
+需要引入jieba库
+并且需要re库来去除"<content>标签"
+
+下面这一段代码将文本进行分词并且保存
+```python
+import jieba
+import re
+
+def reTest(content):
+    reContent = re.sub('<content>|</content>', '', content)
+    return reContent
+
+space = " "
+i = 0
+content_S = []
+finput = open("corpus.txt")
+foutput = open("corpus_seg.txt", 'w')
+for line in finput:
+    line_seg = jieba.lcut(reTest(line))
+    foutput.write(space.join(line_seg))
+    content_S.append(line_seg)
+    i = i + 1
+    if (i % 10000 == 0):
+      print("Saved " + str(i) + " articles_seg")
+
+finput.close()
+foutput.close()
+print("Finished Saved " + str(i) + " articles")
+```
+
+## 3. 使用停词表
+我们发下分词之后还有很多的标点符号出现了很多次,这样会影响我们之后用TF-IDF进行关键词提取.所以我们需要将这些(停用词)进行去除
+
+**对于停词表,可以直接在百度里搜索,然后建立一个txt文件储存即可**
+
+我的停词表名字叫 "stopwords.txt"
+下面可以先读入它然后显示出来看看
+```
+#停词表
+stopwords = pd.read_csv("stopwords.txt", index_col=False, sep = "\n", quoting=3,names=['stopword'], encoding='utf-8')
+stopwords.head(50)
+```
+
+下面的代码是去除停用词
+```
+#去掉停用词
+def drop_stopwords(contents, stopwords):
+    contents_clean = []
+    all_words = []
+    for line in contents:
+        line_clean = []
+        for word in line:
+            if word in stopwords:
+                continue
+            line_clean.append(word)
+            all_words.append(str(word))
+        contents_clean.append(line_clean)
+    return contents_clean, all_words
+
+contents = df_content.content_s.values.tolist()
+stopwords = stopwords.stopword.values.tolist()
+contents_clean, all_words = drop_stopwords(contents, stopwords)
+                
+df_content = pd.DataFrame({'contents_clean':contents_clean})
+df_content.head()
+```
+
+## 4. 制作词云
+通过上面的代码,我们已经去除了停用词,然后我们现在可以将所有词的出现频率做一个排序,然后通过词云显示出来(我们需要用到wordcloud库)
+
+首先我们将字符出现的频率进行排序,然后保存在一个DataFrame里
+```
+import numpy as np
+
+#统计字符出现的次数
+words_count=df_all_words.groupby(by=['all_words'])['all_words'].agg({"count":np.size})  
+#进行排序,将出现次数多的排在前面
+words_count=words_count.reset_index().sort_values(by=["count"],ascending=False)
+words_count.head()
+```
+
+**注意:这里中文字符的显示需要我们另外设置字体,我们可以直接用电脑中的字体**
+
+```
+# 制作词云
+from wordcloud import WordCloud
+import matplotlib.pyplot as plt
+import matplotlib
+matplotlib.rcParams['figure.figsize'] = (10.0, 5.0)
+
+# wordcloud=WordCloud(font_path="/usr/share/fonts/opentype/noto/NotoSansCJK-Medium.ttc",background_color="white",max_font_size=80)
+
+wordcloud = WordCloud(
+        # 设置背景颜色
+        background_color="white",
+         # 设置最大显示的词云数
+       max_words=100,
+         # 这种字体都在电脑字体中，一般路径
+       font_path="/usr/share/fonts/opentype/noto/NotoSansCJK-Medium.ttc",
+#        height= 600,
+#        width= 800,
+        # 设置字体最大值
+       max_font_size=80,
+     # 设置有多少种随机生成状态，即有多少种配色方案
+       random_state=50,
+    )
+
+word_frequence = {x[0]:x[1] for x in words_count.head(100).values}
+wordcloud=wordcloud.fit_words(word_frequence)
+plt.imshow(wordcloud)
+wordcloud.to_file('py_book.png')  # 把词云保存下
+```
+
+##5. TF-IDF关键词提取
+
+我们这里要用到一个公式如下:
+$$result = TF(词频)*IDF(逆文档频率)$$
+得到的result越大越关键
+
+然后对于$TF$与$IDF$我们可以分别由如下公式得到:
+$$词频(TF)=\frac{某个词在文章中出现次数}{该文章总词数}$$
+$$逆文档频率(IDF)=log(\frac{语料库的文档总数}{包含该词的文档总数+1})$$
+
+
+对于实现我们可以用jieba.analyse进行统计输出,代码如下:
+```
+import jieba.analyse
+index= 112
+news = []
+
+finput = open("corpus.txt")
+for line in finput:
+    news.append(reTest(line))
+
+finput.close()
+
+df_news = pd.DataFrame({'content':news})
+
+print(df_news['content'][index])
+content_S_str = "".join(content_S[index])
+#提取前五个作为关键词
+print("   ".join(jieba.analyse.extract_tags(content_S_str, topK=5, withWeight=False)))
+```
+然后我们可以得到五个词,可以看出来,这五个词差不多可以作为新闻摘要了
+
+
+##6. 用word2vec进行词向量嵌入
+用了word2vec库然后将之前获得的分词文件放入得到结果后保存该模型即可.代码如下:
+```python
+import word2vec as wv
+
+wv.word2vec("corpus_seg.txt", "word2vec_segm.bin", size = 300, verbose=True)
+```
+然后我得到了如下结果:
+> Starting training using file corpus_seg.txt
+> Vocab size: 190705
+> Words in train file: 67084609
+> Alpha: 0.000012  Progress: 99.96%  Words/thread/sec: 140.97k  
+
+----------
+
+每次使用时可以将模型导入然后使用
+```python
+model = wv.load("word2vec_segm.bin")
+```
+然后我们就可以通过model变量来调用这个模型了
+
+比如我们可以输出一下整个model的词向量(我这个算是比较巨大)
+```python
+print(model.vectors)
+```
+
+我们也可以输出指定词的词向量
+```python
+print(model["美食"])
+```
+这样会输出一个300的词向量(因为我们之前做word2vec的时候用的维度是300)
+
+我们可以将指定位置的词输出
+```python
+index= 100000
+print(model.vocab[index])
+```
+
+之后我们还可以看看指定词的有联系的词,用下面的语句:
+```python
+indexs = model.cosine("美食")
+for index in indexs[0]:
+    print(model.vocab[index])
+```
+
+##7. PCA在二维空间显示词向量
+
+首先我们用sklearn库中的PCA模型进行降维
+然后用matplotlib进行绘图显示
+
+先导入库
+```python
+import matplotlib
+import matplotlib.pyplot as plt
+from sklearn.decomposition import PCA
+```
+
+然后用一个变量先提取model中的词向量,再进行PCA降维
+```python
+raw_word2vec = model.vectors
+X_reduced = PCA(n_components=2).fit_transform(raw_word2vec)
+```
+这样X_reduced就变成了一个降维的词向量集合了,对于每个词,只有两个坐标(x和y)
+
+----------
+
+然后我们提取几个词的联系紧密的词记录他们的index,然后显示在坐标轴上
+(注意,这里因为要显示中文字,所以需要加入字体文件,加入字体和之前的词云那是一样的)
+
+下面是降维后进行可视化的过程
+```python
+#下面来展示几个降维后的例子
+
+#首先是添加下面这几个(中心)词的联系紧密的词
+index1, metrics1 = model.cosine("中国")
+index2, metrics2 = model.cosine("北京")
+index3, metrics3 = model.cosine("国家")
+index4, metrics4 = model.cosine("美食")
+
+#然后添加上面这几个(中心)词
+index01 = np.where(model.vocab == "中国")
+index02 = np.where(model.vocab == "北京")
+index03 = np.where(model.vocab == "国家")
+index04 = np.where(model.vocab == "美食")
+
+
+index1 = np.append(index1, index01)
+index2 = np.append(index2, index02)
+index3 = np.append(index3, index03)
+index4 = np.append(index4, index04)
+
+
+#下面开始绘图
+fig = plt.figure()
+ax = fig.add_subplot(1, 1, 1)
+
+#注意中文显示需要做特殊处理,就像词云图里一样要选择字体
+Cfont = matplotlib.font_manager.FontProperties(fname="/usr/share/fonts/opentype/noto/NotoSansCJK-Medium.ttc")
+
+for i in index1:
+    ax.text(X_reduced[i][0], X_reduced[i][1], model.vocab[i], fontproperties = Cfont, color = 'r')
+#     print(model.vocab[i])
+for i in index2:
+    ax.text(X_reduced[i][0], X_reduced[i][1], model.vocab[i], fontproperties = Cfont, color = 'b')
+#     print(model.vocab[i])
+for i in index3:
+    ax.text(X_reduced[i][0], X_reduced[i][1], model.vocab[i], fontproperties = Cfont, color = 'g')
+#     print(model.vocab[i])
+for i in index4:
+    ax.text(X_reduced[i][0], X_reduced[i][1], model.vocab[i], fontproperties = Cfont, color = 'y')
+    
+ax.axis([0, 0.8, -0.5, 0.5])
+plt.show()
+```
+
+效果如下:
+![此处输入图片的描述][1]
+
+
+[1]: https://upload-images.jianshu.io/upload_images/11172737-7dc40d0ffaf2cd0f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/468/format/webp
