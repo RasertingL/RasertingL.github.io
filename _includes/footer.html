@@ -1,7 +1,6 @@
 <!-- Footer -->
 <footer>
     <div class="container">
-		
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <ul class="list-inline text-center">
@@ -92,7 +91,7 @@
                     {% endif %}
                 </ul>
                 <p class="copyright text-muted">
-                    Copyright <a href="{{ site.home_repo }}">&copy; {{ site.title }} {{ site.time | date: '%Y' }}</a>
+                    Copyright &copy; {{ site.title }} {{ site.time | date: '%Y' }}
                     <br>
                     Theme on <a href="{{ site.github_repo }}">GitHub</a> |
                     <iframe
@@ -101,24 +100,6 @@
                         src="https://ghbtns.com/github-btn.html?user={{ site.github_username }}&repo={{ site.github_username }}.github.io&type=star&count=true" >
                     </iframe>
                 </p>
-								<div style="text-align: center;font-size: 14px;color: #777;">
-									<span id="timeDate"></span>
-									<span id="times"></span>
-								</div>
-								<script>
-									var now = new Date(); 
-									function createtime() { 
-										var grt= new Date("03/29/2019 21:01:00");//此处修改你的建站时间或者网站上线时间 
-										now.setTime(now.getTime()+250); 
-										days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
-										hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
-										if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
-										mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
-										seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
-										snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
-										document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "; 
-										document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; } setInterval("createtime()",250); 
-								</script>
             </div>
         </div>
     </div>
@@ -132,30 +113,6 @@
 
 <!-- Custom Theme JavaScript -->
 <script src="{{ "/js/hux-blog.min.js " | prepend: site.baseurl }}"></script>
-
-<!--页面背景动画-->
-<script src="/js/canvas-nest.min.js" type="text/javascript" charset="utf-8"></script>
-
-<!--崩溃欺骗-->
-<script type="text/javascript" src="/js/titleqipian.js"></script>
-
-<!--APlayer-->
-		<script src="https://cdn.jsdelivr.net/npm/vconsole/dist/vconsole.min.js"></script><!--vconsole-->
-        <script src="https://cdn.jsdelivr.net/npm/hls.js/dist/hls.min.js"></script>
-        <script src="/js/APlayer.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/color-thief-don@2.0.2/src/color-thief.js"></script>
-		<div id="player5" class="aplayer" style="display: none"></div>
-        <div id="player8" class="aplayer"></div>
-		<script src="https://cdn.jsdelivr.net/npm/jquery"></script>
-		<script src="/js/demo.js"></script>
-        <!--pjax防刷新-->
-		<script src="https://cdn.bootcss.com/jquery.pjax/2.0.1/jquery.pjax.min.js" type="text/javascript"></script>
-		<script type="text/javascript">
-			$(document).pjax('a[target!=_blank]', '.aplayer', {fragment:'.main', timeout:8000});
-			$(document).on('pjax:complete', function() {
-				callbank();
-				});
-		</script>
 
 <!-- Service Worker -->
 {% if site.service-worker %}

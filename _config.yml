@@ -1,30 +1,28 @@
 # Site settings
-title: Raserting_L
-SEOTitle: Raserting_L|天
-header-img: img/index.jpg
+title: Raserting L
+SEOTitle: Raserting的博客 | 天
+header-img: img/post-bg-desk.jpg
 email: lurizhongtian@163.com
-description: "ML    DL    CV    SLAM"
-keyword: "ML    DL    CV    SLAM"
-
+description: "ML DL CV SLAM"
+keyword: ""
 url: "https://rasertingl.github.io/"          # your host, for absolute URL
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
 github_repo: "https://github.com/RasertingL/RasertingL.github.io" # you code repository
-home_repo: ""
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "ML    DL    CV    SLAM"
+sidebar-about-description: "ML DL CV SLAM"
 sidebar-avatar: /img/timg.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
 # SNS settings
 RSS: false
-#weibo_username:     
+# weibo_username:     qiubaiying
 #zhihu_username:     
 github_username:    RasertingL
-#facebook_username: 
-jianshu_username:  d9ba8e414ca8
+#facebook_username:  
+jianshu_username:   d9ba8e414ca8
 #twitter_username:   
 
 
@@ -59,16 +57,16 @@ kramdown:
 
 # 评论系统
 # Disqus（https://disqus.com/）
-# disqus_username: otone
+# disqus_username: qiubaiying
 
 # Gitalk
 gitalk:
   enable: true    #是否开启Gitalk评论
-  clientID: 1628acd4584b56ed9b40                            #生成的clientID
-  clientSecret: 16b70af1ac573e1609bb84a604b4504a18cf7bcd    #生成的clientSecret
-  repo: FujishiroOtone.github.io    #仓库名称
-  owner: FujishiroOtone    #github用户名
-  admin: FujishiroOtone
+  clientID: f2c84e7629bb1446c1a4                            #生成的clientID
+  clientSecret: ca6d6139d1e1b8c43f8b2e19492ddcac8b322d0d    #生成的clientSecret
+  repo: qiubaiying.github.io    #仓库名称
+  owner: qiubaiying    #github用户名
+  admin: qiubaiying
   distractionFreeMode: true #是否启用类似FB的阴影遮罩
 
 
@@ -76,11 +74,11 @@ gitalk:
 
 # Analytics settings
 # Baidu Analytics
-# ba_track_id: b50bf2b12b5338a1845e33832976fd68
+ba_track_id: b50bf2b12b5338a1845e33832976fd68
 
 # Google Analytics
-# ga_track_id: ''            # Format: UA-xxxxxx-xx
-# ga_domain: auto           # 默认的是 auto, 这里我是自定义了的域名，你如果没有自己的域名，需要改成auto
+# ga_track_id: 'UA-90855596-1'            # Format: UA-xxxxxx-xx
+# ga_domain: qiubaiying.top               # 默认的是 auto, 这里我是自定义了的域名，你如果没有自己的域名，需要改成auto
 
 
 
@@ -88,7 +86,7 @@ gitalk:
 
 # Featured Tags
 featured-tags: true                     # 是否使用首页标签
-featured-condition-size: 0             # 相同标签数量大于这个数，才会出现在首页
+featured-condition-size: 0              # 相同标签数量大于这个数，才会出现在首页
 
 
 
@@ -98,8 +96,8 @@ service-worker: true
 
 
 
-# links
-links: [
+# Friends
+friends: [
     {
         title: "GitHub",
         href: "https://github.com/RasertingL"
@@ -110,5 +108,4 @@ links: [
         title: "作业部落",
         href: "https://www.zybuluo.com/Perfect-Demo/note/1143857"
     }
-
 ]
