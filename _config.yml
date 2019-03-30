@@ -18,7 +18,9 @@ sidebar-avatar: /img/timg.jpg      # use absolute URL, seeing it's used in both 
 
 # SNS settings
 RSS: false
-# weibo_username:     qiubaiying
+
+#weibo_username:     qiubaiying
+
 #zhihu_username:     
 github_username:    RasertingL
 #facebook_username:  
@@ -52,6 +54,12 @@ markdown: kramdown
 highlighter: rouge
 kramdown:
   input: GFM                            # use Github Flavored Markdown !important
+
+
+
+# Baidu Share
+
+bd_share: true                          # whether or not using baidu share
 
 
 
