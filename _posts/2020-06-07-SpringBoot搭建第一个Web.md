@@ -9,7 +9,6 @@ catalog: true
 tags:
     - JAVA
     — Spring Boot
-typora-root-url: ..\img
 ---
 
 
