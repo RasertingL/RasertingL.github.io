@@ -2,13 +2,13 @@
 layout:     post
 title:      【Spring Boot（四）】
 subtitle:   Spring Boot + Redis
-date:       2020-06-07 19.32
+date:       2020-06-07 20.01
 author:     Raserting_L
-header-img: img/artical/smooth_sharpen.png
+header-img: img/artical/redis.jpg
 catalog: true
 tags:
     - Spring Boot
-
+    - Java
 
 
 

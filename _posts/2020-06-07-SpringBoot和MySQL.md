@@ -4,7 +4,7 @@ title:      【Spring Boot（二）】
 subtitle:   Spring Boot + Mysql使用
 date:       2020-06-07 19.12
 author:     Raserting_L
-header-img: img/artical/smooth_sharpen.png
+header-img: img/artical/OIP.jpg
 catalog: true
 tags:
     - Spring Boot

@@ -4,7 +4,7 @@ title:      【Spring Boot（一）】
 subtitle:   Spring Boot搭建第一个Web小程序
 date:       2020-06-07 18.02
 author:     Raserting_L
-header-img: img/artical/smooth_sharpen.png
+header-img: img/artical/th.jpg
 catalog: true
 tags:
     - Spring Boot
