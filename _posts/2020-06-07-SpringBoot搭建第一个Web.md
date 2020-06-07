@@ -48,19 +48,19 @@ Spring Boot 2.3.0
 
 再IDEA中新建项目，在左侧选择Spring Initializr  ，可以直接用默认的初始化服务URL。
 
-![springbegin](/imgs_in_articals/springbegin.PNG)
+![springbegin](F:\RasertingL.github.io\img\imgs_in_articals\springbegin.PNG)
 
 之后可以给项目取个名字再next
 
-![springbegin](/imgs_in_articals/springbegin.PNG)
+![begin_name](F:\RasertingL.github.io\img\imgs_in_articals\begin_name.PNG)
 
 下面这一步很重要，我们需要做的是将Web->Spring Web处勾选
 
-![web](/imgs_in_articals/web.PNG)
+![web](F:\RasertingL.github.io\img\imgs_in_articals\web.PNG)
 
 最后给项目选个位置，就可以了
 
-![location](/imgs_in_articals/location.PNG)
+![location](F:\RasertingL.github.io\img\imgs_in_articals\location.PNG)
 
 
 
@@ -68,7 +68,7 @@ Spring Boot 2.3.0
 
 首先看看最终的目录结构：
 
-![jiegou1](/imgs_in_articals/jiegou1.PNG)
+![jiegou1](F:\RasertingL.github.io\img\imgs_in_articals\jiegou1.PNG)
 
 对于pom.xml配置文件的一点解释，如下：
 
