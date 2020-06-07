@@ -1,18 +1,20 @@
 ---
 layout:     post
 title:      【Spring Boot（一）】
-subtitle:   快速入门搭建
-date:       2020-6-7 18.19
+subtitle:   Spring Boot搭建第一个Web小程序
+date:       2020-06-07 18.02
 author:     Raserting_L
-header-img: img/artical/artical2.PNG
+header-img: img/artical/smooth_sharpen.png
 catalog: true
 tags:
-    - JAVA
-    — Spring Boot
+    - Spring Boot
+    - Java
+
+
+
+
 
 ---
-
-
 
 
 

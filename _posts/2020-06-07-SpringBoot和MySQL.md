@@ -1,15 +1,21 @@
 ---
 layout:     post
-title:      【Spring Boot】(二)
-subtitle:   Spring Boot + Mysql 使用
-date:       2020-6-7 19.03
+title:      【Spring Boot（二）】
+subtitle:   Spring Boot + Mysql使用
+date:       2020-06-07 19.12
 author:     Raserting_L
-header-img: img/artical/artical2.PNG
+header-img: img/artical/smooth_sharpen.png
 catalog: true
 tags:
-    - JAVA
-    — Spring Boot
+    - Spring Boot
+    - Java
+
+
+
+
 ---
+
+
 
 **写在前面：**
 
@@ -21,7 +27,7 @@ tags:
 
 首先可以了解一下最终的目录结构
 
-![jiegou2'](/imgs_in_articals/jiegou2'.PNG)
+![jiegou2'](F:\RasertingL.github.io\img\imgs_in_articals\jiegou2'.PNG)
 
 首先要保证电脑里以及安装好了MySQL数据库，然后才能进行下面的步骤。
 
