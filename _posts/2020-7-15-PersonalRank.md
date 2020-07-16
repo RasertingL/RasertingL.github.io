@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      【推荐算法实战（二）】PersonalRank
-subtitle:   个性化召回算法LFM
+subtitle:   个性化召回算法 PersonalRank
 date:       2020-07-14 22.15
 author:     Raserting_L
 header-img: img/artical/OIP (1).jpg
